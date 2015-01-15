@@ -1,0 +1,33 @@
+{
+ "name": "uncheck yo self",
+"description": "Make the current Confluence notify waters check box unchecked by default. Confluence only.",
+"version": "2.0",
+"permissions": [
+"activeTab"
+  ],
+ "background": {
+  	    "scripts": ["background.js"],
+      	    "persistent": false
+      	  },
+	  "browser_action": {
+  	    "default_title": "uncheck yo self",
+        "default_icon" : "icon-19.png"
+    	  },
+        "content_scripts": [
+          {
+            "matches": [
+"http://*/confluence/*",
+              "file:///*checkbox_test.local:confluence*"
+            ],
+            "js": ["content.js"],
+            "all_frames": true,
+            "run_at": "document_end"
+          }
+        ],
+        "icons" : {
+          "48" : "icon-48.png",
+          "128" : "icon-128.png"
+        },
+
+  	  "manifest_version": 2
+	}
